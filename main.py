@@ -5,4 +5,5 @@ webpage_response = requests.get('https://content.codecademy.com/courses/beautifu
 
 webpage = webpage_response.content
 soup = BeautifulSoup(webpage, "html.parser")
-print(soup)
+
+print(soup.prettify())
