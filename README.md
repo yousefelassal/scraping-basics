@@ -31,6 +31,16 @@ import re
 soup.find_all(re.compile("[ou]l"))
 ```
 
+#### We can also just specify all of the elements we want to find by supplying the function with a list of the tag names we are looking for:
+```py
+soup.find_all(['h1', 'a', 'p'])
+```
+
+#### We can pass a dictionary to the attrs parameter of find_all with the desired attributes of the elements we’re looking for. 
+```py
+soup.find_all(attrs={'class':'banner', 'id':'jumbotron'})
+```
+
 #### We can get the children of a tag by accessing the `.children` attribute:
 ```py
 for child in soup.ul.children:
