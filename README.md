@@ -1,6 +1,6 @@
 <div align="center">
   
-# web scraping w/ bs4
+# web scraping w/ [bs4](https://beautiful-soup-4.readthedocs.io/en/latest/)
 
 </div>
 
