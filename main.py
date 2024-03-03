@@ -7,6 +7,6 @@ webpage = webpage_response.content
 soup = BeautifulSoup(webpage, "html.parser")
 
 # print(soup.prettify()) 
-print(soup.div)
-print(soup.div.attrs)
-print(soup.div.span.string)
+# print(soup.div)
+# print(soup.div.attrs)
+# print(soup.div.span.string)
