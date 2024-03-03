@@ -1,4 +1,5 @@
 import requests
+import re
 from bs4 import BeautifulSoup
 
 webpage_response = requests.get('https://content.codecademy.com/courses/beautifulsoup/shellter.html')
@@ -14,4 +15,6 @@ soup = BeautifulSoup(webpage, "html.parser")
 # for child in soup.div.children:
 #     print(child.string)
 
-print(soup.find_all("h1"))
+# print(soup.find_all("h1"))
+
+print(soup.find_all(re.compile("[ou]l")))
