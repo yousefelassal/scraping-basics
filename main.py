@@ -21,4 +21,4 @@ soup = BeautifulSoup(webpage, "html.parser")
 
 # print(soup.find_all(["h1", "a"]))
 
-print(soup.find_all(attrs={"class": "more-info"}))
+# print(soup.find_all(attrs={"class": "more-info"}))
