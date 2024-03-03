@@ -11,5 +11,7 @@ soup = BeautifulSoup(webpage, "html.parser")
 # print(soup.div.attrs)
 # print(soup.div.span.string)
 
-for child in soup.div.children:
-    print(child.string)
+# for child in soup.div.children:
+#     print(child.string)
+
+print(soup.find_all("h1"))
