@@ -24,6 +24,13 @@ all_elements_of_header_class = soup.select(".header")
 all_p_elements = soup.find_all("p")
 ```
 
+#### We can use the `.compile()` function from the re module.
+We will use the regex: `[ou]l` which means “match either o or u and l“.
+```py
+import re
+soup.find_all(re.compile("[ou]l"))
+```
+
 #### We can get the children of a tag by accessing the `.children` attribute:
 ```py
 for child in soup.ul.children:
