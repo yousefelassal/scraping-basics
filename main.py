@@ -17,4 +17,6 @@ soup = BeautifulSoup(webpage, "html.parser")
 
 # print(soup.find_all("h1"))
 
-print(soup.find_all(re.compile("[ou]l")))
+# print(soup.find_all(re.compile("[ou]l")))
+
+print(soup.find_all(["h1", "a"]))
