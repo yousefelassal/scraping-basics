@@ -23,7 +23,8 @@ for link in links:
 #   print(turtle.prettify())
 #   print(turtle.select(".name")[0].get_text())
     turtle_name = turtle.select(".name")[0].get_text()
-    turtle_info = turtle.find("ul")
-    turtle_data[turtle_name] = turtle_info.get_text("|")
+    turtle_info = turtle.find("ul").get_text("|").split("|")
+    turtle_info_stripped = [info.strip() for info in turtle_info if info.strip()]
+    turtle_data[turtle_name] = turtle_info_stripped
 
 print(turtle_data)
