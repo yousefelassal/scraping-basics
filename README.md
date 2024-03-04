@@ -14,9 +14,22 @@ soup = BeautifulSoup(webpage.content, "html.parser")
 first_div = soup.div
 ```
 
-#### or by CSS selector:
+#### or by CSS selector (select by classname):
 ```py
 all_elements_of_header_class = soup.select(".header")
+```
+
+
+#### select by id
+```py
+soup.select("#selected")
+```
+
+#### loop through all of the links inside a `.recipieLink` div
+```py
+for link in soup.select(".recipeLink > a"):
+  webpage = requests.get(link)
+  new_soup = BeautifulSoup(webpage)
 ```
 
 #### or by a call to `.find_all`:
