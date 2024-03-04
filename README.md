@@ -56,6 +56,14 @@ We will use the regex: `[ou]l` which means “match either o or u and l“.
 import re
 soup.find_all(re.compile("[ou]l"))
 ```
+If we wanted to separate out the texts from different tags, we could specify a separator character. This command would use a | character to separate:
+```py
+soup.get_text('|')
+```
+Now, the command returns:
+```txt
+'Search Results for: |Funfetti'
+```
 
 #### We can also just specify all of the elements we want to find by supplying the function with a list of the tag names we are looking for:
 ```py
