@@ -1,24 +1,28 @@
 import requests
-import re
 from bs4 import BeautifulSoup
 
+prefix = "https://content.codecademy.com/courses/beautifulsoup/"
 webpage_response = requests.get('https://content.codecademy.com/courses/beautifulsoup/shellter.html')
 
 webpage = webpage_response.content
 soup = BeautifulSoup(webpage, "html.parser")
 
-# print(soup.prettify()) 
-# print(soup.div)
-# print(soup.div.attrs)
-# print(soup.div.span.string)
+# print(soup.prettify())
 
-# for child in soup.div.children:
-#     print(child.string)
+turtle_links = soup.find_all("a")
+links = []
+#go through all of the a tags and get the links associated with them:
+for a in turtle_links:
+    links.append(prefix+a["href"])
+    
+turtle_data = {}
+#follow each link:
+for link in links:
+    webpage = requests.get(link)
+    turtle = BeautifulSoup(webpage.content, "html.parser")
+#   print(turtle.prettify())
+#   print(turtle.select(".name")[0].get_text())
+    turtle_name = turtle.select(".name")[0].get_text()
+    turtle_data[turtle_name] = []
 
-# print(soup.find_all("h1"))
-
-# print(soup.find_all(re.compile("[ou]l")))
-
-# print(soup.find_all(["h1", "a"]))
-
-# print(soup.find_all(attrs={"class": "more-info"}))
+print(turtle_data)
