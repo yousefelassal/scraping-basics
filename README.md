@@ -14,9 +14,22 @@ soup = BeautifulSoup(webpage.content, "html.parser")
 first_div = soup.div
 ```
 
-#### or by CSS selector:
+#### or by CSS selector (select by classname):
 ```py
 all_elements_of_header_class = soup.select(".header")
+```
+
+
+#### select by id
+```py
+soup.select("#selected")
+```
+
+#### loop through all of the links inside a `.recipieLink` div
+```py
+for link in soup.select(".recipeLink > a"):
+  webpage = requests.get(link)
+  new_soup = BeautifulSoup(webpage)
 ```
 
 #### or by a call to `.find_all`:
@@ -24,11 +37,32 @@ all_elements_of_header_class = soup.select(".header")
 all_p_elements = soup.find_all("p")
 ```
 
+#### We can use `.get_text()` to retrieve the text inside of whatever tag we want to call it on.
+```html
+<h1 class="results">Search Results for: <span class='searchTerm'>Funfetti</span></h1>
+```
+If this is the HTML that has been used to create the soup object, we can make the call:
+```py
+soup.get_text()
+```
+Which will return:
+```txt
+'Search Results for: Funfetti'
+```
+
 #### We can use the `.compile()` function from the re module.
 We will use the regex: `[ou]l` which means “match either o or u and l“.
 ```py
 import re
 soup.find_all(re.compile("[ou]l"))
+```
+If we wanted to separate out the texts from different tags, we could specify a separator character. This command would use a | character to separate:
+```py
+soup.get_text('|')
+```
+Now, the command returns:
+```txt
+'Search Results for: |Funfetti'
 ```
 
 #### We can also just specify all of the elements we want to find by supplying the function with a list of the tag names we are looking for:
