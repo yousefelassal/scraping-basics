@@ -42,8 +42,8 @@ response = requests.post(
 
 # Note: json_data will not be serialized by requests
 # exactly as it was in the original request.
-data = '{"keyWords":"csci208","yearTerm":"2024/SPRG"}'
+data = '{"keyWords":"csci313","yearTerm":"2024/SPRG"}'
 response = requests.post('https://register.nu.edu.eg/PowerCampusSelfService/Sections', cookies=cookies, headers=headers, data=data)
 
 with open('response.json', 'w') as f:
-    f.write(response.text)
+    f.write(response.json())
