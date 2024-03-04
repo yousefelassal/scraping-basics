@@ -37,6 +37,19 @@ for link in soup.select(".recipeLink > a"):
 all_p_elements = soup.find_all("p")
 ```
 
+#### We can use `.get_text()` to retrieve the text inside of whatever tag we want to call it on.
+```html
+<h1 class="results">Search Results for: <span class='searchTerm'>Funfetti</span></h1>
+```
+If this is the HTML that has been used to create the soup object, we can make the call:
+```py
+soup.get_text()
+```
+Which will return:
+```txt
+'Search Results for: Funfetti'
+```
+
 #### We can use the `.compile()` function from the re module.
 We will use the regex: `[ou]l` which means “match either o or u and l“.
 ```py
