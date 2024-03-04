@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# https://curlconverter.com/
 cookies = {
     'ASP.NET_SessionId': os.getenv('SESSION_ID'),
     '.AspNet.Cookies': os.getenv('COOKIES'),
